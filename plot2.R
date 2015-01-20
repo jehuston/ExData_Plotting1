@@ -1,4 +1,4 @@
-setwd("/Users/janehuston/mypy/coursera/datasciencecoursera")
+setwd("/Users/janehuston/mypy/coursera/ExData_Plotting1")
 library(data.table)
 p<- fread('grep "^[12]/2/2007" household_power_consumption.txt', na.strings=c("?", ""))
 setnames(p, colnames(fread('household_power_consumption.txt', nrows=0)))
