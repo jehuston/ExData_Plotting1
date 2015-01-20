@@ -1,0 +1,11 @@
+setwd("/Users/janehuston/mypy/coursera/datasciencecoursera")
+library(data.table)
+p<- fread('grep "^[12]/2/2007" household_power_consumption.txt', na.strings=c("?", ""))
+setnames(p, colnames(fread('household_power_consumption.txt', nrows=0)))
+p<- as.data.frame(p)
+p$DateTime <- as.POSIXlt(paste(p$Date, p$Time), format="%d/%m/%Y %H:%M:%S")
+
+#Plot 2: Line graph of Global_active_power (y) by day of week (x)
+png(filename="plot2.png")
+plot(p$DateTime, p$Global_active_power, type="l", ylab="Global Active Power (kilowatts)", xlab="")
+dev.off()
